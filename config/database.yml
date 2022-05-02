@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: recipe_dev_app
+  username: admin
+  password: postgres
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: recipe_test_app
+
+production:
+  <<: *default
+  database: recipe_prod_app

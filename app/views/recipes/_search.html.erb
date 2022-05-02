@@ -1,0 +1,4 @@
+<%= form_tag(recipes_path, method: :get) do %>
+    <%=text_field_tag(:search, params[:search], placeholder: "Search by Ingredient") %>
+    <%= submit_tag "Search", name: nil, class: "boxed-btn3-text"%>
+<% end %>

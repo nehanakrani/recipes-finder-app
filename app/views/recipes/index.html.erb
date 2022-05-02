@@ -1,0 +1,29 @@
+<h1>List of Recipes</h1>
+<%= render "search", recipe: @recipe %><br>
+<% if @recipes.length > 0 %>
+  <div class='col-md-3'>
+    <table>
+      <thead>
+        <tr>
+          <th>
+          <th>Title</th>
+          <th>Ingredients</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipes.each do |recipe| %>
+          <tr>
+            <td><%= image_tag recipe.image, size:"100x100"%></td>
+            <td><%= recipe.title %></td>
+            <td><%= link_to "View Ingredients", recipe_path(recipe.id), class: "boxed-btn3-text"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%else%>
+    <h4> Your search returned no matches</h4>
+  <%end%>
+<div class="listed">
+  <%= will_paginate @recipes %>
+</div>
